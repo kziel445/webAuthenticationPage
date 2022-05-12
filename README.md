@@ -22,7 +22,7 @@ Instalation:<br>
 `dotnet add .\WebAppContacts\ package MongoDB.Driver`
 <br>
 Run mongoDB in docker container:<br>
-`docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo`
+`docker run -d --rm --name {name} -p 27017:27017 -v mongodbdata:/data/db mongo`
 <br>
 
 Docker: https://docs.docker.com/engine/reference/commandline/run/
