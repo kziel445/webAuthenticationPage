@@ -3,8 +3,10 @@ using WebAppContacts.Models;
 
 namespace WebAppContacts.Repositories
 {
-    public interface IItemsRepository
+    public interface IContactsRepository
     {
-        Contacts GetContact(Guid id);  
+        Contact GetContact(Guid id);  
+        void CreateContact(Contact contact);
+
     }
 }

@@ -5,10 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAppContacts.Repositories;
+using WebAppContacts.Settings;
 
 namespace WebAppContacts
 {
@@ -24,6 +27,15 @@ namespace WebAppContacts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddSingleton<IMongoClient>(serviceProvider => {
+                var settings = Configuration.GetSection(nameof(MongoDbSettings))
+                    .Get<MongoDbSettings>();
+                return new MongoClient(settings.ConnectionString);
+            });
+            
+            services.AddSingleton<IContactsRepository, MongoDbContactsRepository>();
+
             services.AddControllersWithViews();
             services.AddSwaggerGen(c =>
             {
