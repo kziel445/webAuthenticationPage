@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppContacts", "WebAppContacts\WebAppContacts.csproj", "{EE32D27A-70E9-40F6-8337-4478717E6A87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE32D27A-70E9-40F6-8337-4478717E6A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE32D27A-70E9-40F6-8337-4478717E6A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE32D27A-70E9-40F6-8337-4478717E6A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE32D27A-70E9-40F6-8337-4478717E6A87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FCD93BC-73E4-4058-9B3B-2415FA913089}
+	EndGlobalSection
+EndGlobal
