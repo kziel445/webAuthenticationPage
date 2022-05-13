@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAppContacts.Models
 {
-    public class Contact
+    public record Contact
     {
         // public enum Category
         // {

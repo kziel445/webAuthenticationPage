@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebAppContacts.Schemas
 {
-    public record CreateContact
+    public record UpdateContact
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,6 +15,5 @@ namespace WebAppContacts.Schemas
         public string SubCategory { get; set; }
         public string PhoneNumber { get; set; }
         public DateTimeOffset BirthDate { get; set; }
-
     }
 }
