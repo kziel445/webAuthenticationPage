@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAppContacts.Repositories;
 using WebAppContacts.Settings;
+using WebAppContacts.Models;
 
 namespace WebAppContacts
 {
@@ -27,13 +28,18 @@ namespace WebAppContacts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
             
+            // system configuration for authorization
+            services.AddIdentity<AppUser, AppRole>()
+                    .AddMongoDbStores<AppUser, AppRole, Guid>
+                    (
+                        settings.ConnectionString, settings.Name
+                    );
+
             services.AddSingleton<IMongoClient>(serviceProvider => {
-                var settings = Configuration.GetSection(nameof(MongoDbSettings))
-                    .Get<MongoDbSettings>();
                 return new MongoClient(settings.ConnectionString);
             });
-            
             services.AddSingleton<IContactsRepository, MongoDbContactsRepository>();
 
             services.AddControllersWithViews();

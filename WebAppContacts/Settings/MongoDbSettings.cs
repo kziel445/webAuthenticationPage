@@ -2,8 +2,9 @@ namespace WebAppContacts.Settings
 {
     public class MongoDbSettings
     {
-        public string Host { get; set; }
-        public int Port { get; set; }
+        public string Name { get; init; }
+        public string Host { get; init; }
+        public int Port { get; init; }
         public string ConnectionString 
         { 
             get 

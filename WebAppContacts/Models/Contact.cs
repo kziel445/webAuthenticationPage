@@ -18,7 +18,7 @@ namespace WebAppContacts.Models
         public Guid Id { get; init; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Required]
+        [Required][EmailAddress(ErrorMessage = "Invalid Email")]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
