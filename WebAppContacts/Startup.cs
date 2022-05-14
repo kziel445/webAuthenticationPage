@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using WebAppContacts.Repositories;
 using WebAppContacts.Settings;
 using WebAppContacts.Models;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Bson;
 
 namespace WebAppContacts
 {
@@ -28,6 +31,9 @@ namespace WebAppContacts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+
             var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
             
             // system configuration for authorization
@@ -68,7 +74,8 @@ namespace WebAppContacts
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
